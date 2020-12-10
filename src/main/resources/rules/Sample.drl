@@ -1,0 +1,459 @@
+package com.sample
+ 
+import com.sample.DroolsTest.Question;
+import java.util.ArrayList
+import javax.swing.JOptionPane;
+
+import javax.swing.JFrame
+
+
+rule "init"
+	when
+	
+	then
+		String[] answers ={"No but she always wanted one",
+							"No but I feel like she need it",
+							"She's taking my phone too often. Should I hide it?",
+							"She already has old one"};
+		String question="Has she ever had a phone?";					
+		int n = JOptionPane.showOptionDialog(null,
+                                             question,
+                                             "",
+                                             JOptionPane.DEFAULT_OPTION,
+                                             JOptionPane.QUESTION_MESSAGE,
+                                             null,
+                                             answers
+                                             ,
+                                             answers[0]);					
+
+		insert(new Question(question,answers,answers[n]));
+end
+
+rule "init1"
+    when
+      	Question(answer.equals("She just won't stop. MAKE IT STOP"));
+    then
+    	String question= "Are you bankrolling this entire enterprise, player?";	
+    	String[] answers ={
+    		"They pay half, I pay half. I pay for most of it",
+			"No, my kid's take- home pay is higher than mine, so he's paying for all of it",
+			"Yes. Against all scientific odds, I made of money" ,
+    	 };
+        int n = JOptionPane.showOptionDialog(null,
+                                             question,
+                                             "",
+                                             JOptionPane.DEFAULT_OPTION,
+                                             JOptionPane.QUESTION_MESSAGE,
+                                             null,
+                                             answers
+                                             ,
+                                             answers[0]);
+        insert(new Question(question,answers,answers[n]));
+end
+
+rule "init2"
+    when
+      	Question(question.equals("Has she ever had a phone?"),answer.equals("No but she always wanted one"));
+    then
+    	String question= "Are you about to snap under the crushing weight of constant whining?";	
+    	String[] answers ={"Actually, he never brought it up. I was just thinking" ,
+							"Yes. This is all my kid talks about. I am slowly dying" ,
+ 							"She just won't stop. MAKE IT STOP" };
+        int n = JOptionPane.showOptionDialog(null,
+                                             question,
+                                             "",
+                                             JOptionPane.DEFAULT_OPTION,
+                                             JOptionPane.QUESTION_MESSAGE,
+                                             null,
+                                             answers
+                                             ,
+                                             answers[0]);
+        insert(new Question(question,answers,answers[n]));
+end
+
+
+
+rule "init3"
+    when
+      	Question(question.equals("Has she ever had a phone?"),answer.equals("No but I feel like she need it"));
+    then
+    	String question= "Do you mind if your kid never looks up from her phone again?";	
+    	String[] answers ={"Actually, I have strict rules about the amount of time she will spend on her phone",
+							"One sec, I'm just finishing a game of Bejeweled" };
+        int n = JOptionPane.showOptionDialog(null,
+                                             question,
+                                             "",
+                                             JOptionPane.DEFAULT_OPTION,
+                                             JOptionPane.QUESTION_MESSAGE,
+                                             null,
+                                             answers
+                                             ,
+                                             answers[0]);
+        insert(new Question(question,answers,answers[n]));
+end
+
+rule "init4"
+    when
+      	Question(question.equals("Has she ever had a phone?"),answer.equals("She's taking my phone too often. Should I hide it?"));
+    then
+    	String question= "How will you feel when your kid drops and smashes the phone on the first day he has it?";	
+    	String[] answers ={"Now it looks like my phone. Neat!",
+ 							"Fine. I am a husk of my former self. I feel nothing" ,
+							 "Excuse me while l curl up in a ball and weep"};
+        int n = JOptionPane.showOptionDialog(null,
+                                             question,
+                                             "",
+                                             JOptionPane.DEFAULT_OPTION,
+                                             JOptionPane.QUESTION_MESSAGE,
+                                             null,
+                                             answers
+                                             ,
+                                             answers[0]);
+        insert(new Question(question,answers,answers[n]));
+end
+
+rule "init5"
+    when
+      	Question(question.equals("Has she ever had a phone?"),answer.equals("She already has old one"));
+    then
+    	String question=  "Just the one phone?";	
+    	String[] answers ={"Dude. This isn't The Wire. How many phones does she need?"};
+        int n = JOptionPane.showOptionDialog(null,
+                                             question,
+                                             "",
+                                             JOptionPane.DEFAULT_OPTION,
+                                             JOptionPane.QUESTION_MESSAGE,
+                                             null,
+                                             answers
+                                             ,
+                                             answers[0]);
+        insert(new Question(question,answers,answers[n]));
+end
+
+
+
+rule "6"
+    when
+    	(or
+      	Question(question.equals("How will you feel when your kid drops and smashes the phone on the first day he has it?"))
+      	Question(question.equals("Are you seriously shocked that he lost his phone?"))
+      	)
+    then
+    	String question=  "Will you pany up and get him another phone?";	
+    	String[] answers ={"Yes, but he will work it off with hard manual labour around the house until the end of days!", "What? NO. Get a job, you mooch","Whatever. I'm a human ATM"};
+        int n = JOptionPane.showOptionDialog(null,
+                                             question,
+                                             "",
+                                             JOptionPane.DEFAULT_OPTION,
+                                             JOptionPane.QUESTION_MESSAGE,
+                                             null,
+                                             answers
+                                             ,
+                                             answers[0]);
+        insert(new Question(question,answers,answers[n]));
+end
+
+rule "7"
+    when
+      	Question(answer.equals("Yes. This is all my kid talks about. I am slowly dying"));
+    then
+    	String question=  "Do you and your kid know about bullying?";	
+    	String[] answers ={"Um, yeah.Doi"};
+        int n = JOptionPane.showOptionDialog(null,
+                                             question,
+                                             "",
+                                             JOptionPane.DEFAULT_OPTION,
+                                             JOptionPane.QUESTION_MESSAGE,
+                                             null,
+                                             answers
+                                             ,
+                                             answers[0]);
+        insert(new Question(question,answers,answers[n]));
+end
+
+rule "8"
+    when
+      	Question(answer.equals("HELL YEAH. They better"));
+    then
+    	String question= "Do you think she will answer your urgent calls and texts right away/quickly/ever?";	
+    	String[] answers ={ "No. It's like I'm invisible. Can you see me?","I found this cell phone agreement online. She signed it, so I think we're good" };
+        int n = JOptionPane.showOptionDialog(null,
+                                             question,
+                                             "",
+                                             JOptionPane.DEFAULT_OPTION,
+                                             JOptionPane.QUESTION_MESSAGE,
+                                             null,
+                                             answers
+                                             ,
+                                             answers[0]);
+        insert(new Question(question,answers,answers[n]));
+end
+
+rule "9"
+    when
+      	Question(question.equals("Can you handle him losing his phone like, LITERALLY everywhere?"));
+    then
+    	String question= "Are you seriously shocked that he lost his phone?";	
+    	String[] answers ={
+    	"This is my first day with my kid. We're still getting to know each other" ,
+		"I guess not. Just leave me alone and let me drink" 
+    	};
+        int n = JOptionPane.showOptionDialog(null,
+                                             question,
+                                             "",
+                                             JOptionPane.DEFAULT_OPTION,
+                                             JOptionPane.QUESTION_MESSAGE,
+                                             null,
+                                             answers
+                                             ,
+                                             answers[0]);
+        insert(new Question(question,answers,answers[n]));
+end
+rule "10"
+    when
+      	(or
+      	Question(answer.equals("One sec, I'm just finishing a game of Bejeweled"))
+      	Question(answer.equals("No. It's like I'm invisible. Can you see me?"))
+      	)
+    then
+    	String question=  "Can you handle him losing his phone like, LITERALLY everywhere?";	
+    	String[] answers ={
+    	 "Hang on. I can't find my phone. Can you call it?" ,
+		 "Nope. SHUT IT DOWN"
+    	};
+        int n = JOptionPane.showOptionDialog(null,
+                                             question,
+                                             "",
+                                             JOptionPane.DEFAULT_OPTION,
+                                             JOptionPane.QUESTION_MESSAGE,
+                                             null,
+                                             answers
+                                             ,
+                                             answers[0]);
+        insert(new Question(question,answers,answers[n]));
+end
+rule "11"
+    when
+    (or 
+      	Question(answer.equals("Actually, I have strict rules about the amount of time she will spend on her phone"))
+      	Question(answer.equals("I found this cell phone agreement online. She signed it, so I think we're good"))
+      	
+     )
+    then
+    	String question= "HA HA good one. Do your kids always follow your rules?" ;	
+    	String[] answers ={
+		
+"HELL YEAH. They better",
+ "Of course. They are my sweet angels <3" 
+
+		};
+        int n = JOptionPane.showOptionDialog(null,
+                                             question,
+                                             "",
+                                             JOptionPane.DEFAULT_OPTION,
+                                             JOptionPane.QUESTION_MESSAGE,
+                                             null,
+                                             answers
+                                             ,
+                                             answers[0]);
+        insert(new Question(question,answers,answers[n]));
+end
+rule "12"
+    when
+    (or
+      	Question(answer.equals("They pay half, I pay half. I pay for most of it"))
+      	Question(answer.equals("Yes. Against all scientific odds, I made of money"))
+     ) 	
+    then
+    	String question= "Who will spend their hard-earned cash on apps, overages other charges your kid makes 'by mistake?'";	
+    	String[] answers ={
+		"She will. I mentioned twice, so I think she gets it",
+ 		"Whatever. I'm a human ATM"
+    	};
+        int n = JOptionPane.showOptionDialog(null,
+                                             question,
+                                             "",
+                                             JOptionPane.DEFAULT_OPTION,
+                                             JOptionPane.QUESTION_MESSAGE,
+                                             null,
+                                             answers
+                                             ,
+                                             answers[0]);
+        insert(new Question(question,answers,answers[n]));
+end
+
+
+rule "13"
+    when
+      	Question(question.equals("Just the one phone?"),answer.equals("Dude. This isn't The Wire. How many phones does she need?"));
+    then
+    	String question=  "Mmm-hmm. What will you do next year when she wants a new phone?";	
+    	String[] answers ={"Whatever. I'm a human ATM","I will tell the story of how we used to use land lines. And make her clean out the garage"};
+        int n = JOptionPane.showOptionDialog(null,
+                                             question,
+                                             "",
+                                             JOptionPane.DEFAULT_OPTION,
+                                             JOptionPane.QUESTION_MESSAGE,
+                                             null,
+                                             answers
+                                             ,
+                                             answers[0]);
+        insert(new Question(question,answers,answers[n]));
+end
+
+rule "14"
+    when
+    (or
+      	Question(answer.equals("Of course. They are my sweet angels <3" ))
+      	Question(answer.equals("She will. I mentioned twice, so I think she gets it" ))
+     ) 	
+    then
+    	String question=  "Do you have a HUMAN child?";	
+    	String[] answers ={"Kinda? I have a robot I built in my basement. I named him Kevin"};
+        int n = JOptionPane.showOptionDialog(null,
+                                             question,
+                                             "",
+                                             JOptionPane.DEFAULT_OPTION,
+                                             JOptionPane.QUESTION_MESSAGE,
+                                             null,
+                                             answers
+                                             ,
+                                             answers[0]);
+        insert(new Question(question,answers,answers[n]));
+end
+
+rule "15"
+    when
+      	Question(answer.equals( "Um, yeah.Doi" ));
+    then
+    	String question=  "Are you being bullied right now?";	
+    	String[] answers ={
+ "Yes. Hold me" ,
+"No more than usual" 
+};
+        int n = JOptionPane.showOptionDialog(null,
+                                             question,
+                                             "",
+                                             JOptionPane.DEFAULT_OPTION,
+                                             JOptionPane.QUESTION_MESSAGE,
+                                             null,
+                                             answers
+                                             ,
+                                             answers[0]);
+        insert(new Question(question,answers,answers[n]));
+end
+
+rule "16"
+    when
+    	
+    	(or
+      	Question(answer.equals( "No more than usual"  ))
+      	Question(answer.equals("No. I mean, maybe? IDK, I'm so tired" ))
+      	)
+    then
+    	String question=  "If you say yes, can use this as leverage to get something you want? ";	
+    	String[] answers ={
+ "Sweet. I can get a hot tub in the backyard!" 
+};
+        int n = JOptionPane.showOptionDialog(null,
+                                             question,
+                                             "",
+                                             JOptionPane.DEFAULT_OPTION,
+                                             JOptionPane.QUESTION_MESSAGE,
+                                             null,
+                                             answers
+                                             ,
+                                             answers[0]);
+        insert(new Question(question,answers,answers[n]));
+end
+
+rule "17"
+    when
+      	Question(answer.equals(  "Yes. Hold me"));
+    then
+    	String question=   "Have you also promised her a puppy?";	
+    	String[] answers ={
+"Yes. Finally, I shall be crowned as the greatest parent ever. Bow to me!" ,
+"No. I mean, maybe? IDK, I'm so tired" 
+};
+        int n = JOptionPane.showOptionDialog(null,
+                                             question,
+                                             "",
+                                             JOptionPane.DEFAULT_OPTION,
+                                             JOptionPane.QUESTION_MESSAGE,
+                                             null,
+                                             answers
+                                             ,
+                                             answers[0]);
+        insert(new Question(question,answers,answers[n]));
+end
+
+rule "18"
+    when
+    	(or
+      	Question(question.equals("Mmm-hmm. What will you do next year when she wants a new phone?"),answer.equals("I will tell the story of how we used to use land lines. And make her clean out the garage"))
+		 
+		Question(answer.equals("Yes, but he will work it off with hard manual labour around the house until the end of days!"))
+		)
+    then
+    	String question=  "Are you going to shell out extra money for Apple Care, extra insurance or an unbreakable case?";	
+    	String[] answers ={"Is there an unbreakable case I can shove my kid into?", "Whatever. I'm a human ATM"};
+        int n = JOptionPane.showOptionDialog(null,
+                                             question,
+                                             "",
+                                             JOptionPane.DEFAULT_OPTION,
+                                             JOptionPane.QUESTION_MESSAGE,
+                                             null,
+                                             answers
+                                             ,
+                                             answers[0]);
+        insert(new Question(question,answers,answers[n]));
+end
+
+rule "DON'T GET THE PHONE"
+    when
+    (or
+    	Question(answer.equals("Actually, he never brought it up. I was just thinking")) 
+      	Question(answer.equals("Is there an unbreakable case I can shove my kid into?"))
+      	Question(answer.equals("What? NO. Get a job, you mooch"))
+    )  	
+    then
+    
+        String answer=("DON'T GET A PHONE. Why not spend that money on a Disney cruise? That should buy you at least a year");
+    	JOptionPane.showMessageDialog(null, answer);
+ 		
+end
+
+rule "GET THE PHONE"
+    when
+    (or
+		Question(answer.equals("Sweet. I can get a hot tub in the backyard!" ))
+		Question(answer.equals("Whatever. I'm a human ATM"))
+	)	
+	 then
+    
+        String answer=("GET THE PHONE AND DON'T LOOK BACK!  You're aware of all of the frustrations, tears and money you'll go through, but it's still worth it. It's like having kids, except phones are way cooler");
+    	JOptionPane.showMessageDialog(null, answer);
+end
+
+rule "WHY ARE YOU"
+    when
+    (or
+		Question(answer.equals("No, my kid's take- home pay is higher than mine, so he's paying for all of it" ))
+		Question(answer.equals("Yes. Finally, I shall be crowned as the greatest parent ever. Bow to me!"))
+	)	
+	 then
+    
+        String answer=("WHY ARE YOU EVEN ASKING?Get a phone, live your life and savour this beautiful time together");
+    	JOptionPane.showMessageDialog(null, answer);
+end
+
+rule "BUY KEVIN A PHONE!"
+    when
+    			Question(answer.equals("Kinda? I have a robot I built in my basement. I named him Kevin"))
+	 then
+    
+        String answer=( "BUY KEVIN A PHONE! . And congrats on creating your own A.I. Can you build me a Kevin too?");
+    	JOptionPane.showMessageDialog(null, answer);
+end
+
